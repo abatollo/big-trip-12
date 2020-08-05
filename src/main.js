@@ -344,5 +344,40 @@ const render = (container, template, place) => {
 const siteTripMainElement = document.querySelector(`.trip-main`);
 const siteTripControlsElement = siteTripMainElement.querySelector(`.trip-controls`);
 const siteTripControlsSwitchElement = siteTripControlsElement.querySelector(`h2:first-of-type`);
+const siteTripControlsFilterElement = siteTripControlsElement.querySelector(`h2:last-of-type`);
 
+render(siteTripMainElement, createTripInfoTemplate(), `afterbegin`);
 render(siteTripControlsSwitchElement, createSiteMenuTemplate(), `afterend`);
+render(siteTripControlsFilterElement, createTripFiltersTemplate(), `afterend`);
+
+const siteTripEventsElement = document.querySelector(`.trip-events`);
+
+render(siteTripEventsElement, createTripSortTemplate(), `beforeend`);
+
+render(siteTripEventsElement, createEventEditTemplate(), `beforeend`);
+
+const eventEditElement = siteTripEventsElement.querySelector(`.event--edit`);
+
+render(eventEditElement, createEventEditDetailsTemplate(), `beforeend`);
+
+render(siteTripEventsElement, createTripDaysTemplate(), `beforeend`);
+
+const eventEditDetailsElement = eventEditElement.querySelector(`.event__details`);
+
+render(eventEditDetailsElement, createEventEditDetailsDestinationTemplate(), `beforeend`);
+
+const tripDaysElement = siteTripEventsElement.querySelector(`.trip-days`);
+
+render(tripDaysElement, createDayElementTemplate(), `beforeend`);
+
+const dayElement = tripDaysElement.querySelector(`.day`);
+
+render(dayElement, createDayInfoElementTemplate(), `afterbegin`);
+
+const tripEventList = dayElement.querySelector(`.trip-events__list`);
+
+render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
