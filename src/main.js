@@ -1,5 +1,7 @@
 "use strict";
 
+const TRIP_EVENTS_COUNT = 3;
+
 const createTripInfoTemplate = () => {
   return (
     `<section class="trip-main__trip-info  trip-info">
@@ -376,8 +378,6 @@ render(dayElement, createDayInfoElementTemplate(), `afterbegin`);
 
 const tripEventList = dayElement.querySelector(`.trip-events__list`);
 
-render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
-render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
-render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
-render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
-render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+for (let i = 0; i < TRIP_EVENTS_COUNT; i++) {
+  render(tripEventList, createTripEventsItemTemplate(), `afterbegin`);
+}
